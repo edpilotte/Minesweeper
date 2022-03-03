@@ -3,7 +3,7 @@ private static final int NUM_ROWS = 5;
 private static final int NUM_COLS = 5;
 //Declare and initialize constants NUM_ROWS and NUM_COLS = 20
 private MSButton[][] buttons; //2d array of minesweeper buttons
-private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons that are mined
+private ArrayList <MSButton> mines = new ArrayList <MSButton>(); //ArrayList of just the minesweeper buttons that are mined
 
 void setup ()
 {
@@ -26,10 +26,13 @@ void setup ()
 }
 public void setMines()
 {
-  int ranRow = (int)(Math.random()*5);
-  int ranCol = (int)(Math.random()*5);
-  if(!mines.contains(buttons[ranRow][ranCol])) {
-    mines.add(buttons[ranRow][ranCol]);
+  for(int i = 0; i < NUM_ROWS; i++) {
+    int ranRow = (int)(Math.random()*NUM_ROWS);
+    int ranCol = (int)(Math.random()*NUM_COLS);
+    if(!mines.contains(buttons[ranRow][ranCol])) {
+      mines.add(buttons[ranRow][ranCol]);
+      System.out.println(ranRow + ", " + ranCol);
+    }
   }
 }
 
@@ -54,13 +57,23 @@ public void displayWinningMessage()
 }
 public boolean isValid(int r, int c)
 {
-    //your code here
+  if((r >= NUM_ROWS) || (r < 0)) {
     return false;
+  } else if((c >= NUM_COLS) || (c < 0)) {
+    return false;
+  } return true;
 }
 public int countMines(int row, int col)
 {
     int numMines = 0;
-    //your code here
+    if((isValid(row,col) == true) && (mines.contains(buttons[row-1][col-1])) {numMines++]
+    if((isValid(row,col) == true) && (mines.contains(buttons[row-1][col])) {numMines++]
+    if((isValid(row,col) == true) && (mines.contains(buttons[row-1][col+1])) {numMines++]
+    if((isValid(row,col) == true) && (mines.contains(buttons[row][col-1])) {numMines++]
+    if((isValid(row,col) == true) && (mines.contains(buttons[row][col+1])) {numMines++]
+    if((isValid(row,col) == true) && (mines.contains(buttons[row+1][col-1])) {numMines++]
+    if((isValid(row,col) == true) && (mines.contains(buttons[row+1][col])) {numMines++]
+    if((isValid(row,col) == true) && (mines.contains(buttons[row+1][col+1])) {numMines++]
     return numMines;
 }
 public class MSButton
