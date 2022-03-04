@@ -44,7 +44,7 @@ public void draw ()
 }
 public boolean isWon()
 {
-    //your code here
+    
     return false;
 }
 public void displayLosingMessage()
@@ -66,14 +66,14 @@ public boolean isValid(int r, int c)
 public int countMines(int row, int col)
 {
     int numMines = 0;
-    if((isValid(row,col) == true) && (mines.contains(buttons[row-1][col-1]) == true)) {numMines++;}
-    if((isValid(row,col) == true) && (mines.contains(buttons[row-1][col]) == true)) {numMines++;}
-    if((isValid(row,col) == true) && (mines.contains(buttons[row-1][col+1]) == true)) {numMines++;}
-    if((isValid(row,col) == true) && (mines.contains(buttons[row][col-1]) == true)) {numMines++;}
-    if((isValid(row,col) == true) && (mines.contains(buttons[row][col+1]) == true)) {numMines++;}
-    if((isValid(row,col) == true) && (mines.contains(buttons[row+1][col-1]) == true)) {numMines++;}
-    if((isValid(row,col) == true) && (mines.contains(buttons[row+1][col]) == true)) {numMines++;}
-    if((isValid(row,col) == true) && (mines.contains(buttons[row+1][col+1]) == true)) {numMines++;}
+    if((isValid(row-1,col-1) == true) && (mines.contains(buttons[row-1][col-1]) == true)) {numMines++;}
+    if((isValid(row-1,col) == true) && (mines.contains(buttons[row-1][col]) == true)) {numMines++;}
+    if((isValid(row-1,col+1) == true) && (mines.contains(buttons[row-1][col+1]) == true)) {numMines++;}
+    if((isValid(row,col-1) == true) && (mines.contains(buttons[row][col-1]) == true)) {numMines++;}
+    if((isValid(row,col+1) == true) && (mines.contains(buttons[row][col+1]) == true)) {numMines++;}
+    if((isValid(row+1,col-1) == true) && (mines.contains(buttons[row+1][col-1]) == true)) {numMines++;}
+    if((isValid(row+1,col) == true) && (mines.contains(buttons[row+1][col]) == true)) {numMines++;}
+    if((isValid(row+1,col+1) == true) && (mines.contains(buttons[row+1][col+1]) == true)) {numMines++;}
     return numMines;
 }
 public class MSButton
@@ -112,21 +112,21 @@ public class MSButton
         } else if(countMines(myRow,myCol) > 0) {
           setLabel(countMines(myRow,myCol));
         } else {
-          if((isValid(myRow-1,myCol-1)) && (!mines.contains(this))) {
+          if((isValid(myRow-1,myCol-1) == true) && (!mines.contains(this)) && (buttons[myRow-1][myCol-1].clicked == false)) {
             buttons[myRow-1][myCol-1].mousePressed();
-          } if((isValid(myRow-1,myCol)) && (!mines.contains(this))) {
+          } if((isValid(myRow-1,myCol) == true) && (!mines.contains(this)) && (buttons[myRow-1][myCol].clicked == false)) {
             buttons[myRow-1][myCol].mousePressed();
-          } if((isValid(myRow-1,myCol+1)) && (!mines.contains(this))) {
+          } if((isValid(myRow-1,myCol+1) == true) && (!mines.contains(this)) && (buttons[myRow-1][myCol+1].clicked == false)) {
             buttons[myRow-1][myCol+1].mousePressed();
-          } if((isValid(myRow,myCol-1)) && (!mines.contains(this))) {
+          } if((isValid(myRow,myCol-1) == true) && (!mines.contains(this)) && (buttons[myRow][myCol-1].clicked == false)) {
             buttons[myRow][myCol-1].mousePressed();
-          } if((isValid(myRow,myCol+1)) && (!mines.contains(this))) {
+          } if((isValid(myRow,myCol+1) == true) && (!mines.contains(this)) && (buttons[myRow][myCol+1].clicked == false)) {
             buttons[myRow][myCol+1].mousePressed();
-          } if((isValid(myRow+1,myCol-1)) && (!mines.contains(this))) {
+          } if((isValid(myRow+1,myCol-1) == true) && (!mines.contains(this)) && (buttons[myRow+1][myCol-1].clicked == false)) {
             buttons[myRow+1][myCol-1].mousePressed();
-          } if((isValid(myRow+1,myCol)) && (!mines.contains(this))) {
+          } if((isValid(myRow+1,myCol) == true) && (!mines.contains(this)) && (buttons[myRow+1][myCol].clicked == false)) {
             buttons[myRow+1][myCol].mousePressed();
-          } if((isValid(myRow+1,myCol+1)) && (!mines.contains(this))) {
+          } if((isValid(myRow+1,myCol+1) == true) && (!mines.contains(this)) && (buttons[myRow+1][myCol+1].clicked == false)) {
             buttons[myRow+1][myCol+1].mousePressed();
           }
         }
