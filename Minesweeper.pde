@@ -66,11 +66,25 @@ public void displayLosingMessage()
       if(mines.get(i).isClicked() == false) {
         mines.get(i).mousePressed();
       }
-    } System.out.println("*Kaboom* You Lost");
+    } buttons[NUM_ROWS/2][NUM_COLS/2-4].setLabel("Y");
+      buttons[NUM_ROWS/2][NUM_COLS/2-3].setLabel("O");
+      buttons[NUM_ROWS/2][NUM_COLS/2-2].setLabel("U");
+      buttons[NUM_ROWS/2][NUM_COLS/2-1].setLabel("");
+      buttons[NUM_ROWS/2][NUM_COLS/2].setLabel("L");
+      buttons[NUM_ROWS/2][NUM_COLS/2+1].setLabel("O");
+      buttons[NUM_ROWS/2][NUM_COLS/2+2].setLabel("S");
+      buttons[NUM_ROWS/2][NUM_COLS/2+3].setLabel("E");
 }
 public void displayWinningMessage()
 {
-    System.out.println("Good job, you lived!");
+      buttons[NUM_ROWS/2][NUM_COLS/2-4].setLabel("Y");
+      buttons[NUM_ROWS/2][NUM_COLS/2-3].setLabel("O");
+      buttons[NUM_ROWS/2][NUM_COLS/2-2].setLabel("U");
+      buttons[NUM_ROWS/2][NUM_COLS/2-1].setLabel("");
+      buttons[NUM_ROWS/2][NUM_COLS/2].setLabel("W");
+      buttons[NUM_ROWS/2][NUM_COLS/2+1].setLabel("I");
+      buttons[NUM_ROWS/2][NUM_COLS/2+2].setLabel("N");
+      buttons[NUM_ROWS/2][NUM_COLS/2+3].setLabel("!");
 }
 public boolean isValid(int r, int c)
 {
